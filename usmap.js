@@ -82,7 +82,7 @@ Raphael.fn.USMap = function(){
     plot: function(lat, lng, message) {
       var coords = this.convertCoords(lat, lng);
       var point = paper.circle(coords[0], coords[1], 3).attr(this.pointStyle);
-
+      point.toFront();
       if(message) {
         point.node.onmouseover = function () {
           if(popup) {popup.remove()};
