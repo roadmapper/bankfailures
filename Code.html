@@ -8,7 +8,7 @@
   <script type="text/javascript" charset="utf-8" src='usmap.js'></script>
   <script type="text/javascript" charset="utf-8" src='raphaeltools.js'></script>
   <script type="text/javascript" charset="utf-8" src='raphaeltools.src.js'></script>
-  <!--<script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=geometry,places"></script>-->
+  <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=geometry,places"></script>
   <style type="text/css" media="screen">
   body {font-family: helvetica,arial,sans-serif;} 
   a { color: #666;}
@@ -32,8 +32,9 @@
     paper = new ScaleRaphael('plot-map-container', 950, 650);
     map = paper.USMap();
     paper.scaleAll(pageWidth/map.width);
+    //paper.text(50,600,"Bank Failures Across the United States from 2000-2013");
     paper.TextBox({
-      x:50,y:600,width:map.width-50,height:50,str:"Bank Failures Across the United States from 2000-2013",textAttrs:{'font-size':25}
+      x:40,y:590,width:map.width-50,height:50,str:"Bank Failures Across the United States from 2000-2013",textAttrs:{'font-size':25},rectAttrs:{'opacity':0.0}
     });
 
     /* slider */
@@ -71,7 +72,7 @@
       var monthClosed = points[i][3];
       var yearClosed = points[i][4];
       var myPercent = (yearClosed-2000+(monthClosed/12))/(2013-2000);
-      map.plot(lat, parseFloat(lon), address).attr({"fill": "rgb(255, 255, 255)"});
+      map.plot(lat, parseFloat(lon), address).attr({"fill": "rgb(240, 240, 240)"});
 
       var inrange = Math.abs(myPercent-slidePercent);
       if(inrange <= 0.0325){
